@@ -17,13 +17,14 @@ class PowerlineFonts < Formula
     end
     fonts = share+"fonts"
     fonts.install Dir['*']
+    fonts.install Dir['.fonts.conf']
   end
 
   def caveats
     <<-EOS.undent
-      Make sure to link the .fonts.config file to your home directory
+      Make sure to link the .fonts.conf file to your home directory
 
-        ln -s #{HOMEBREW_PREFIX}/share/fonts/.fonts.config $HOME
+        ln -s #{HOMEBREW_PREFIX}/share/fonts/.fonts.conf $HOME
     EOS
   end
 
