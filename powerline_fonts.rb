@@ -22,9 +22,14 @@ class PowerlineFonts < Formula
 
   def caveats
     <<-EOS.undent
-      Make sure to link the .fonts.conf file to your home directory
+      Make sure to install .fonts.conf correctly on Chromebooks
 
-        ln -s #{HOMEBREW_PREFIX}/share/fonts/.fonts.conf $HOME
+
+        mkdir -p /tmp/test/
+        sudo mount --bind /home/chronos/ /tmp/test/
+        cd /tmp/test/user
+        ln -s #{HOMEBREW_PREFIX}/share/fonts/.fonts.conf .
+
     EOS
   end
 
